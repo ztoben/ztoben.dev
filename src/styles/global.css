@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.full-height-minus-header {
+  min-height: calc(100vh - 72px);
+}
+
 .card-shadow {
   filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
   transition: all;
@@ -12,7 +16,7 @@
   filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
 }
 
-:root 
+:root
 {  /* ---- ⚫️ Colors ⚪️ ---- */
   /* Base Tokens */
   --sys-color-white: #FFFFFF;

@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Default.astro';
-import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
 import MobileSocials from '@components/home/MobileSocials.astro';
 import { Pill } from '@eliancodes/brutal-ui';
 import { Button } from '@eliancodes/brutal-ui';
@@ -21,54 +20,61 @@ const builtWith = [
   { name: 'Vercel', url: 'https://vercel.com' },
   { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
 ];
+
+const myTechStack = [
+  'JavaScript',
+  'TypeScript',
+  'Astro',
+  'React',
+  'Node.js',
+  'Python',
+  'C#',
+  'Google Cloud',
+  'Docker',
+  'AWS',
+  'Vercel',
+  'Next.js',
+  'Azure',
+];
 ---
 
 <Layout
-  title='Home'
-  pageTitle='Brutal Theme | Home'
-  description='Brutal is a minimalistic, neobrutalism theme for Astro.'
+  title='ztoben.dev'
+  description='My home page'
 >
-  <main class='bg-pink p-6'>
+  <main class='bg-orange p-6 flex flex-col items-center full-height-minus-header'>
     <MobileSocials />
-    <section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
-      <h2 class='hidden'>About Brutal</h2>
-      <div class='col-span-4'>
+    <section id='about' class='grid md:grid-cols-8 gap-8 mt-4 max-w-5xl'>
+      <div class='col-span-8'>
         <Card>
           <div class='flex flex-col justify-between items-start gap-4'>
             <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
-              Brutal theme for <a
-                class='text-white'
-                target='_blank'
-                href='https://astro.build/'>Astro</a
-              >
+              Who am I?
             </p>
             <p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
-              A minimalistic, neobrutalism theme for Astro.
+              I'm a software engineer. A creator. An eternal learner.
             </p>
             <Button target={'_self'} href='/blog/'>
-              Check out the blog &rarr;
+              Check out my blog &rarr;
             </Button>
           </div>
         </Card>
       </div>
-      <div class='col-span-2'>
+      <div class='col-span-8 sm:col-span-4'>
         <Card>
           <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-            Brutal is built with
+            What tools do I like to use?
           </h2>
+          <p class='outfit'>
+            Generally, whatever gets the job done. But here are some of my favorites:
+          </p>
+          <br />
           <ul class='flex gap-4 flex-wrap'>
             {
-              builtWith.map((item) => (
+              myTechStack.map((item) => (
                 <li>
                   <Pill>
-                    <a
-                      class='sanchez'
-                      href={item.url}
-                      target='_blank'
-                      title={`Go to ${item.name}`}
-                    >
-                      {item.name}
-                    </a>
+                    {item}
                   </Pill>
                 </li>
               ))
@@ -76,20 +82,42 @@ const builtWith = [
           </ul>
         </Card>
       </div>
-      <div class='col-span-2'>
+      <div class='col-span-8 sm:col-span-4'>
         <Card>
           <h2 class='text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif'>
-            What is Brutal?
+            What kind of things do I like to build?
           </h2>
           <p class='poppins'>
-            Brutal is a theme built with Astro, UnoCSS by <a
-              href='https://www.elian.codes/'>Elian</a
-            >. It's a simple, fast, and modern theme that is easy to use and
-            customize. Mainly meant to power blogs and personal websites.
+            I like building web applications, discovering new technologies, and sharing my knowledge with others.
+          </p>
+          <br />
+          <p class='poppins'>
+            Front end is where my interests most align, but I am an efficient full stack developer.
           </p>
         </Card>
       </div>
+      <div class='col-span-8 sm:col-span-4'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif'>
+            What is this site built with?
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              builtWith.map((item) => (
+                <li>
+                  <a
+                    href={item.url}
+                    class='outfit font-bold underline transition-all duration-150 ease-in-out'
+                    title={`Go to ${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
     </section>
-    <RecentBlogPosts />
   </main>
 </Layout>
