@@ -41,10 +41,10 @@ const { tag, blogposts } = Astro.props;
 
 <Layout
   title={`Blog: ${tag}`}
-  description={`Brutal Blog | All posts tagged with ${tag}`}
-  pageTitle={`Brutal Blog | Blogposts tagged with ${tag}`}
+  description={`All posts tagged with ${tag}`}
+  pageTitle={`Blogposts tagged with ${tag}`}
 >
-  <main class='p-6 bg-purple grid gap-4'>
+  <main class='p-6 bg-purple grid gap-4 full-height-minus-header'>
     <div>
       <Button href='/blog/'>&larr; Back to blog</Button>
     </div>

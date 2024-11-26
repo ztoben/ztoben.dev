@@ -7,22 +7,27 @@ interface Props {
   imgSrc: ImageMetadata;
   imgAlt: string;
   description: string;
+  compact?: boolean;
 }
 
-const { title, imgAlt, imgSrc, description } = Astro.props;
+const { title, imgAlt, imgSrc, description, compact } = Astro.props;
 ---
 
 <Card color='white'>
-  <h3 class='poppins text-lg md:text-xl'>{title}</h3>
-  <div class='rounded-lg border-3 border-black my-4 h-56'>
-    <Image
-      src={imgSrc}
-      alt={imgAlt}
-      width={800}
-      height={400}
-      class='rounded h-full w-full object-cover'
-    />
-  </div>
+  <h3 class=`font-bold ${compact ? 'text-md mb-2' : 'text-lg md:text-xl mb-4'}`>
+    {title}
+  </h3>
+  {!compact && (
+    <div class='rounded-lg border-3 border-black my-4 h-56'>
+      <Image
+        src={imgSrc}
+        alt={imgAlt}
+        width={800}
+        height={400}
+        class='rounded h-full w-full object-cover'
+      />
+    </div>
+  )}
   <p class='poppins'>{description}</p>
   <slot />
 </Card>

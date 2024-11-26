@@ -4,19 +4,34 @@ import BlogSummaryCard from './BlogSummaryCard.astro';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
+  compact?: boolean;
 }
 
-const { posts } = Astro.props;
+const { posts, compact } = Astro.props;
 ---
 
-<ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-  {
-    posts.map((post) => {
-      return (
-        <li>
-          <BlogSummaryCard post={post} />
-        </li>
-      );
-    })
-  }
-</ul>
+{compact ? (
+  <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+    {
+      posts.map((post) => {
+        return (
+          <li>
+            <BlogSummaryCard post={post} compact />
+          </li>
+        );
+      })
+    }
+  </ul>
+) : (
+  <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+    {
+      posts.map((post) => {
+        return (
+          <li>
+            <BlogSummaryCard post={post} />
+          </li>
+        );
+      })
+    }
+  </ul>
+)}
