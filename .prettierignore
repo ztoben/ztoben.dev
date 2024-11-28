@@ -1,0 +1,7 @@
+.github
+node_modules
+.idea
+.astro
+package.json
+package-lock.json
+pnpm-lock.yaml
